@@ -12,7 +12,7 @@
     Department  = 学院,
     Title       = 毕业论文/设计题目,
     SubmitDate  = 递交日期,
-    MajorFormat = cs,
+    MajorFormat = isee,
     Type        = design, % `thesis` or `design`
     Period      = final,  % `final`  or `proposal`
     BlindReview = false   % `true`   or `false`
@@ -27,19 +27,21 @@
     \inputpage{final/toc}
 
     \cleardoublestylepage{previous}
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
     \ifthenelse{\equal{\Type}{design}}
         {\part{毕业设计}}
-        {\part{毕业论文}}
+        {\part{毕业论文（设计）}}
     \input{content/final/content}
 
     \inputpage{final/post}
 
     % Proposal part
     \newrefsection
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
     \cleardoublestylepage{empty}
     \ifthenelse{\equal{\Type}{design}}
         {\part{毕业设计开题报告}}
-        {\part{毕业论文开题报告}}
+        {\part{文献综述和开题报告}}
 
     \inputpage{proposal/cover}
     \inputpage{proposal/previous}
