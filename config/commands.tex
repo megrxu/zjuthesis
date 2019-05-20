@@ -37,12 +37,12 @@
     \end{center}
 }
 
-\newcommand{\signature}[1]
+\newcommand{\signature}[2][\quad 年 \quad 月 \quad 日]
 {
     \begin{flushright}
         \bfseries \zihao{-4}
-        #1 \underline{\multido{}{5}{\quad}} \\
-        \quad 年 \quad 月 \quad 日
+        #2 \underline{\multido{}{5}{\quad}} \\
+        #1
     \end{flushright}
 }
 

@@ -3,30 +3,29 @@
 \DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
 \captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
 \usepackage{listings}
+% 代码格式和颜色定义
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{comment}{rgb}{0.40,0.40,0.40}
 \lstset{
-    basicstyle=\footnotesize\ttfamily,
-    numberstyle=\tiny,
-    numbersep=5pt,
-    tabsize=4,
-    extendedchars=true,
-    breaklines=true,
-    keywordstyle=\color{red},
-    frame=b,
-    escapeinside=``,
-    keywordstyle=[1]\textbf,
-    keywordstyle=[2]\textbf,
-    keywordstyle=[3]\textbf,
-    keywordstyle=[4]\textbf,
-    showspaces=false,
-    showtabs=false,
-    xleftmargin=17pt,
-    framexleftmargin=17pt,
-    framexrightmargin=5pt,
-    framexbottommargin=4pt,
-    commentstyle=\color{green},
-    keywordstyle=\color{blue},
-    stringstyle=\color{red},
-    showstringspaces=false
+  frame=tb,
+  aboveskip=3mm,
+  belowskip=3mm,
+  xleftmargin=0em,
+  xrightmargin=0em,
+  showstringspaces=false,
+  columns=flexible,
+  framerule=1pt,
+  rulecolor=\color{gray!35},
+  backgroundcolor=\color{gray!5},
+  basicstyle={\footnotesize\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray!8},
+  keywordstyle=\color{blue},
+  commentstyle=\bfseries\color{comment},
+  stringstyle=\color{dkgreen},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2,
 }
 \lstloadlanguages{
     C,

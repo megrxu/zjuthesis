@@ -26,12 +26,13 @@
     \inputpage{final/previous}
     \inputpage{final/toc}
 
-    \cleardoublestylepage{previous}
     \addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
+    \cleardoublestylepage{previous}
     \ifthenelse{\equal{\Type}{design}}
         {\part{毕业设计}}
         {\part{毕业论文（设计）}}
     \input{content/final/content}
+    \input{content/final/cv}
 
     \inputpage{final/post}
 
@@ -49,6 +50,20 @@
     \inputpage{proposal/post}
 }
 
+\newcommand{\inputthesis}
+{
+    % Final part
+    \newrefsection
+    \input{content/final/abstract}
+    \inputpage{final/toc}
+
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
+    \input{content/final/content}
+
+    \pagestyle{empty}
+    \inputpage{final/job}
+}
+
 \newcommand{\inputproposal}
 {
     \inputpage{proposal/cover}
@@ -58,6 +73,10 @@
     \inputpage{proposal/post}
 }
 
+\raggedbottom
+\floatname{algorithm}{算法}
+\setlist[enumerate]{nosep}
+
 \begin{document}
 
 \ifthenelse{\equal{\Period}{final}}
@@ -65,7 +84,13 @@
     \inputfinal{}
 }
 {
-    \inputproposal{}
+    \ifthenelse{\equal{\Period}{proposal}}
+    {
+        \inputproposal{}
+    }
+    {
+        \inputthesis{}
+    }
 }
 
 \end{document}
