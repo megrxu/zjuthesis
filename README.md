@@ -12,7 +12,7 @@
 ## 使用
 
 > 注意：
-> - TeX Live 套件会在每年的 4 月左右进行版本升级，但有时候新版本会有一些和旧版不兼容的问题。我在 2019 新版发布后会尽快测试兼容性，但还是推荐各位同学使用 2018 版本以确保兼容性
+> - 本模板已经兼容 TeX Live 2019，并且这个版本复制伪粗体文字不会产生乱码，建议单独使用 Tex Live 的同学尽快升级 2019 版本
 > - 本模板默认情况下使用计算机科学与技术专用格式，如需使用其他专业格式，请修改 `zjuthesis.tex` 中 `\documentclass` 部分的 `MajorFormat`
 
 1. [下载模板代码](https://github.com/TheNetAdmin/zjuthesis/releases)
@@ -68,6 +68,8 @@
 
 1. Q: pdf 文字复制得到乱码？
 
+   A: 最新的解决方法是升级 TeX Live 2019 版本，此版本似乎不会产生中文复制乱码的问题
+
    A: 这是因为 Windows 自带的宋体没有粗体，所以在本模板中使用了伪粗体（config/zjuthesis.cls:`\PassOptionsToPackage{AutoFakeBold}{xeCJK}`），这样可以保证观感一致性。
    
    如果大家有对查重的要求，请删除这一行，并手动指定粗体字体，比如使用楷体作为本模板的‘粗体’，这也是一种常见的解决方案。
@@ -77,14 +79,25 @@
    
    相关讨论见：https://github.com/CTeX-org/ctex-kit/issues/353
 
-1. Q: 某些 pdf 阅读器(如 Chrome )打开看不到中文，或者中文乱码
+1. Q: **某些 pdf 阅读器(如 Chrome )打开看不到中文，或者中文乱码**
 
    A: 可能是 LaTeX 没有正确嵌入字体，最简单的解决方案是用没有乱码的 pdf 阅读器打开->打印->打印成 pdf ，然后尝试用有问题的阅读器打开，看是否仍有问题。
    
    如果需要了解具体发生了什么，请查阅 zjuthesis.log ，在文件内搜索 warning 和 error ，看一下是否有字体相关的报错。
+
+1. Q: 怎么在 Overleaf 上使用？
+
+   A: 下载本模板并在 Overleaf 上上传 .zip 文件，选择使用 XeLatex 编译器。
+      
+      由于字体存在版权问题，还请大家自行设置字体。
+       
+      如果编译超时（不显示 pdf 也不报错），请尝试注释中文字体设置（位于 `config/format/general/font.tex` 以及 `config/foramt/major/.../font.tex`），然后重新编译，应该就可以了。编译超时可能是缺失字体导致的，请大家自行上传字体并设置字体路径。
+
+1. Q: 怎么配合 vscode 使用？
+
+   A: 参见[这里](https://github.com/TheNetAdmin/zjuthesis/issues/11)
    
-1. 其他问题请在 [Github issue](./issues/) 提出，或使用邮件与我联系（邮箱见上方Q1）。
->>>>>>> c2d924b1ca382a660c9e21ea8a80bb5f4556f553
+1. 其他问题请在 [Github issue](https://github.com/TheNetAdmin/zjuthesis/issues/) 提出，或使用邮件与我联系（邮箱见上方Q1）。
 
 ## 开源许可
 
